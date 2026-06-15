@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prime Speaking — Bangladesh's Premier Spoken English Platform. Learn to speak English fluently from Beginner to Advanced.">
+  <title>Prime Speaking — Speak English with Confidence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --n950:#020810; --n900:#060E1C; --n800:#0A1628;
+      --n700:#10203A; --n600:#1A2D4C; --n500:#243F68; --n400:#325582;
+      --g600:#A8790A; --g500:#C49416; --g400:#D4AF37;
+      --g300:#E0C458; --g200:#EDD678; --g100:#F6E9A0;
+      --white:#FFFFFF; --tp:#EEF2FF; --ts:#9FAEC8; --tm:#5A6F8E;
+      --bg-gold:rgba(212,175,55,.12); --br-gold:rgba(212,175,55,.25);
+      --br-white:rgba(255,255,255,.07);
+      --r-sm:8px; --r-md:14px; --r-lg:20px;
+      --sh-card:0 4px 24px rgba(0,0,0,.4);
+      --sh-gold:0 0 40px rgba(212,175,55,.2);
+    }
+
+    html { scroll-behavior:smooth; }
+
+    body {
+      font-family:'Poppins',sans-serif;
+      background:var(--n900); color:var(--tp);
+      overflow-x:hidden; line-height:1.6;
+    }
+
+    a { text-decoration:none; color:inherit; }
+
+    /* ── UTILITIES ── */
+    .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+    .sp { padding:96px 0; }
+    .sh { text-align:center; margin-bottom:60px; }
+
+    .eyebrow {
+      display:inline-block; font-size:.72rem; font-weight:700;
+      letter-spacing:.22em; text-transform:uppercase;
+      color:var(--g400); margin-bottom:14px;
+    }
+
+    .sec-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.9rem,3.5vw,2.8rem); font-weight:700;
+      color:var(--white); line-height:1.2; margin-bottom:14px;
+    }
+
+    .sec-sub {
+      font-size:1rem; color:var(--ts);
+      max-width:560px; margin:0 auto; line-height:1.75;
+    }
+
+    .gold { color:var(--g400); }
+    .ital { font-style:italic; }
+
+    section[id] { scroll-margin-top:80px; }
+
+    .badge {
+      display:inline-flex; align-items:center; gap:5px;
+      padding:4px 11px; border-radius:20px;
+      font-size:.73rem; font-weight:600; letter-spacing:.04em;
+    }
+    .beg { background:rgba(34,197,94,.12); color:#4ADE80; border:1px solid rgba(34,197,94,.25); }
+    .int { background:var(--bg-gold); color:var(--g300); border:1px solid var(--br-gold); }
+    .adv { background:rgba(239,68,68,.12); color:#F87171; border:1px solid rgba(239,68,68,.25); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:13px 26px; border-radius:var(--r-sm);
+      font-family:'Poppins',sans-serif; font-size:.92rem;
+      font-weight:600; border:none; cursor:pointer;
+      transition:all .28s ease;
+    }
+    .btn-gold {
+      background:linear-gradient(135deg,var(--g600) 0%,var(--g300) 100%);
+      color:var(--n800); box-shadow:0 4px 18px rgba(212,175,55,.35);
+    }
+    .btn-gold:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(212,175,55,.5); }
+    .btn-outline {
+      background:transparent; color:var(--white);
+      border:1.5px solid rgba(255,255,255,.35);
+    }
+    .btn-outline:hover { border-color:var(--g400); color:var(--g400); transform:translateY(-2px); }
+    .btn-ghost {
+      background:var(--bg-gold); color:var(--g300); border:1px solid var(--br-gold);
+    }
+    .btn-ghost:hover { background:var(--g400); color:var(--n800); }
+
+    /* ── NAVBAR ── */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      padding:20px 0; transition:all .35s ease;
+    }
+    .nav.scrolled {
+      background:rgba(6,14,28,.96); backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px); padding:13px 0;
+      border-bottom:1px solid var(--br-gold);
+      box-shadow:0 4px 28px rgba(0,0,0,.35);
+    }
+    .nav-wrap { display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:700; }
+    .logo-p { color:var(--white); }
+    .logo-s { color:var(--g400); }
+    .nav-menu { display:flex; align-items:center; list-style:none; gap:2px; }
+    .nav-menu a {
+      font-size:.875rem; font-weight:500; color:rgba(255,255,255,.78);
+      padding:8px 13px; border-radius:var(--r-sm); transition:all .2s;
+    }
+    .nav-menu a:hover { color:var(--g400); background:rgba(212,175,55,.08); }
+    .nav-right { display:flex; align-items:center; gap:14px; }
+    .hamburger {
+      display:none; flex-direction:column; gap:5px;
+      cursor:pointer; padding:4px; background:none; border:none;
+    }
+    .hamburger span {
+      display:block; width:22px; height:2px;
+      background:var(--white); border-radius:2px; transition:all .3s;
+    }
+
+    /* Mobile Nav */
+    .mob-nav {
+      display:none; position:fixed; inset:0;
+      background:rgba(2,8,16,.98); backdrop-filter:blur(20px);
+      z-index:1001; flex-direction:column;
+      align-items:center; justify-content:center; gap:8px;
+    }
+    .mob-nav.open { display:flex; }
+    .mob-close {
+      position:absolute; top:22px; right:24px;
+      background:none; border:none; color:var(--white);
+      font-size:1.4rem; cursor:pointer;
+    }
+    .mob-links { list-style:none; text-align:center; margin-bottom:24px; }
+    .mob-links li { margin:6px 0; }
+    .mob-links a {
+      font-family:'Playfair Display',serif; font-size:2.2rem;
+      font-weight:700; color:rgba(255,255,255,.9);
+      display:block; padding:6px; transition:color .2s;
+    }
+    .mob-links a:hover { color:var(--g400); }
+
+    /* ── HERO ── */
+    #hero {
+      position:relative; width:100%; height:100vh;
+      min-height:700px; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+    }
+    #heroCanvas { position:absolute; inset:0; width:100%; height:100%; }
+    .hero-grad {
+      position:absolute; inset:0;
+      background:linear-gradient(to bottom,
+        rgba(2,8,16,.35) 0%, rgba(6,14,28,.15) 40%,
+        rgba(6,14,28,.6) 75%, rgba(6,14,28,1) 100%);
+    }
+    .hero-inner {
+      position:relative; z-index:2; text-align:center;
+      max-width:860px; padding:0 24px;
+    }
+    .hero-chip {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(212,175,55,.1); border:1px solid rgba(212,175,55,.35);
+      color:var(--g200); padding:8px 18px; border-radius:30px;
+      font-size:.82rem; font-weight:500; letter-spacing:.04em;
+      margin-bottom:28px; animation:fadeInDown .8s ease both;
+    }
+    .hero-chip i { color:var(--g400); font-size:.75rem; }
+    .hero-h1 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.8rem,6vw,5rem); font-weight:900;
+      line-height:1.1; color:var(--white); margin-bottom:22px;
+      animation:fadeInUp .85s ease .1s both;
+    }
+    .hero-h1 em { font-style:italic; color:var(--g400); }
+    .hero-p {
+      font-size:clamp(.95rem,1.8vw,1.18rem); color:rgba(255,255,255,.68);
+      line-height:1.8; margin-bottom:36px;
+      animation:fadeInUp .85s ease .2s both;
+    }
+    .hero-btns {
+      display:flex; gap:14px; justify-content:center;
+      flex-wrap:wrap; animation:fadeInUp .85s ease .3s both;
+    }
+    .hero-kpis {
+      position:absolute; bottom:68px; left:0; right:0; z-index:2;
+      display:flex; justify-content:center; gap:48px;
+      animation:fadeInUp .85s ease .5s both;
+    }
+    .kpi-num {
+      font-family:'Playfair Display',serif; font-size:1.85rem;
+      font-weight:700; color:var(--g400); text-align:center;
+    }
+    .kpi-lbl {
+      font-size:.75rem; color:rgba(255,255,255,.5);
+      text-transform:uppercase; letter-spacing:.1em; text-align:center;
+    }
+    .scroll-hint {
+      position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+      z-index:2; display:flex; flex-direction:column; align-items:center;
+      gap:6px; color:rgba(255,255,255,.35); font-size:.7rem;
+      letter-spacing:.14em; text-transform:uppercase;
+      animation:fadeIn 1s ease 1s both;
+    }
+    .scroll-hint i { color:var(--g400); animation:bounce 2.2s ease infinite; }
+
+    /* ── STATS STRIP ── */
+    #stats-strip {
+      background:var(--n700); border-top:1px solid var(--br-gold);
+      border-bottom:1px solid var(--br-white); padding:56px 0;
+    }
+    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); }
+    .stat-item { text-align:center; padding:0 24px; border-right:1px solid var(--br-white); }
+    .stat-item:last-child { border-right:none; }
+    .stat-num {
+      font-family:'Playfair Display',serif; font-size:2.8rem;
+      font-weight:700; color:var(--g400); line-height:1; margin-bottom:6px;
+    }
+    .stat-lbl { font-size:.87rem; color:var(--ts); }
+
+    /* ── LEVELS ── */
+    #levels { background:var(--n900); }
+    .levels-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+    .lv-card {
+      background:var(--n700); border:1px solid var(--br-white);
+      border-radius:var(--r-lg); padding:38px 30px;
+      transition:all .36s ease; position:relative; overflow:hidden;
+    }
+    .lv-card::after {
+      content:''; position:absolute; top:0; left:0; right:0;
+      height:3px; opacity:0; transition:opacity .36s;
+    }
+    .lv-card.c-beg::after { background:linear-gradient(90deg,transparent,#4ADE80,transparent); }
+    .lv-card.c-int::after { background:linear-gradient(90deg,transparent,var(--g400),transparent); }
+    .lv-card.c-adv::after { background:linear-gradient(90deg,transparent,#F87171,transparent); }
+    .lv-card:hover {
+      border-color:var(--br-gold); transform:translateY(-8px);
+      box-shadow:var(--sh-card),var(--sh-gold);
+    }
+    .lv-card:hover::after { opacity:1; }
+    .lv-icon {
+      width:58px; height:58px; border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; margin-bottom:22px;
+    }
+    .li-beg { background:rgba(34,197,94,.1); }
+    .li-int { background:var(--bg-gold); }
+    .li-adv { background:rgba(239,68,68,.1); }
+    .lv-card h3 {
+      font-family:'Playfair Display',serif; font-size:1.45rem;
+      font-weight:700; color:var(--white); margin-bottom:8px;
+    }
+    .lv-desc { font-size:.875rem; color:var(--ts); line-height:1.75; margin-bottom:22px; }
+    .topic-list { list-style:none; margin-bottom:28px; }
+    .topic-list li {
+      display:flex; align-items:center; gap:10px;
+      font-size:.84rem; color:var(--ts);
+      padding:7px 0; border-bottom:1px solid rgba(255,255,255,.04);
+    }
+    .topic-list li:last-child { border-bottom:none; }
+    .topic-list i { font-size:.65rem; color:var(--g400); flex-shrink:0; }
+    .lv-footer {
+      display:flex; align-items:center; justify-content:space-between;
+      padding-top:18px; border-top:1px solid var(--br-white);
+    }
+    .lv-count { font-size:.82rem; color:var(--tm); }
+    .lv-count strong { color:var(--g400); font-size:1rem; }
+
+    /* ── LESSONS ── */
+    #lessons { background:var(--n800); }
+    .lessons-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:48px; }
+    .ls-card {
+      background:var(--n700); border:1px solid var(--br-white);
+      border-radius:var(--r-md); overflow:hidden;
+      transition:all .3s ease; cursor:pointer;
+    }
+    .ls-card:hover { border-color:var(--br-gold); transform:translateY(-4px); box-shadow:var(--sh-card); }
+    .ls-thumb {
+      height:155px; display:flex; align-items:center;
+      justify-content:center; position:relative; overflow:hidden;
+    }
+    .ls-thumb::before {
+      content:''; position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(212,175,55,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(212,175,55,.04) 1px,transparent 1px);
+      background-size:22px 22px;
+    }
+    .ls-emoji {
+      font-size:3rem; position:relative; z-index:1;
+      filter:drop-shadow(0 0 16px rgba(212,175,55,.4));
+    }
+    .ls-play {
+      position:absolute; inset:0; background:rgba(0,0,0,.35);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; transition:opacity .3s; z-index:2;
+    }
+    .ls-play i { font-size:2.2rem; color:var(--g400); filter:drop-shadow(0 0 10px rgba(212,175,55,.6)); }
+    .ls-card:hover .ls-play { opacity:1; }
+    .t1{background:linear-gradient(135deg,#0C1E3C 0%,#162E58 100%);}
+    .t2{background:linear-gradient(135deg,#12102E 0%,#1E1A46 100%);}
+    .t3{background:linear-gradient(135deg,#1E0C2C 0%,#301440 100%);}
+    .t4{background:linear-gradient(135deg,#0C201C 0%,#163028 100%);}
+    .t5{background:linear-gradient(135deg,#1E1606 0%,#302212 100%);}
+    .t6{background:linear-gradient(135deg,#1E0616 0%,#300E24 100%);}
+    .ls-body { padding:18px 20px 20px; }
+    .ls-meta { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+    .ls-dur { font-size:.78rem; color:var(--tm); display:flex; align-items:center; gap:4px; }
+    .ls-title { font-size:.97rem; font-weight:600; color:var(--white); line-height:1.45; margin-bottom:7px; }
+    .ls-desc { font-size:.82rem; color:var(--ts); line-height:1.65; }
+
+    /* ── WHY US ── */
+    #why-us { background:var(--n900); }
+    .feat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .feat-card {
+      background:var(--n700); border:1px solid var(--br-white);
+      border-radius:var(--r-md); padding:30px; transition:all .3s;
+    }
+    .feat-card:hover { border-color:var(--br-gold); }
+    .fi {
+      width:46px; height:46px; background:var(--bg-gold);
+      border-radius:11px; display:flex; align-items:center;
+      justify-content:center; color:var(--g400);
+      font-size:1.15rem; margin-bottom:18px;
+    }
+    .feat-card h4 { font-size:1rem; font-weight:600; color:var(--white); margin-bottom:8px; }
+    .feat-card p { font-size:.85rem; color:var(--ts); line-height:1.75; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background:var(--n800); }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .testi-card {
+      background:var(--n700); border:1px solid var(--br-white);
+      border-radius:var(--r-md); padding:30px; transition:all .3s;
+    }
+    .testi-card:hover { border-color:var(--br-gold); transform:translateY(-4px); }
+    .stars { display:flex; gap:3px; color:var(--g400); font-size:.85rem; margin-bottom:14px; }
+    .testi-text {
+      font-size:.92rem; color:var(--ts); line-height:1.82;
+      font-style:italic; margin-bottom:22px;
+      padding-left:22px; position:relative;
+    }
+    .testi-text::before {
+      content:'"'; font-family:'Playfair Display',serif;
+      font-size:4rem; color:var(--g400); position:absolute;
+      left:-2px; top:-18px; line-height:1; opacity:.7;
+    }
+    .testi-author { display:flex; align-items:center; gap:12px; }
+    .avatar {
+      width:44px; height:44px; border-radius:50%;
+      background:linear-gradient(135deg,var(--n500),var(--n400));
+      border:2px solid var(--br-gold);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Playfair Display',serif; font-weight:700;
+      font-size:1rem; color:var(--g400); flex-shrink:0;
+    }
+    .auth-name { font-size:.9rem; font-weight:600; color:var(--white); }
+    .auth-loc { font-size:.78rem; color:var(--tm); }
+
+    /* ── RESOURCES ── */
+    #resources { background:var(--n900); }
+    .res-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .res-card {
+      background:var(--n700); border:1px solid var(--br-white);
+      border-radius:var(--r-md); padding:28px 24px;
+      text-align:center; transition:all .3s; cursor:pointer;
+    }
+    .res-card:hover { border-color:var(--br-gold); transform:translateY(-4px); }
+    .res-icon {
+      width:56px; height:56px; border-radius:14px;
+      background:var(--bg-gold); display:flex; align-items:center;
+      justify-content:center; color:var(--g400);
+      font-size:1.4rem; margin:0 auto 16px;
+    }
+    .res-card h4 { font-size:.95rem; font-weight:600; color:var(--white); margin-bottom:6px; }
+    .res-card p { font-size:.8rem; color:var(--ts); line-height:1.65; margin-bottom:16px; }
+    .res-tag { display:inline-flex; align-items:center; gap:5px; font-size:.75rem; color:var(--g400); font-weight:600; }
+
+    /* ── ABOUT ── */
+    #about { background:var(--n800); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .about-txt h2 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.9rem,3vw,2.6rem); font-weight:700;
+      color:var(--white); line-height:1.2; margin-bottom:18px;
+    }
+    .about-txt p { font-size:.95rem; color:var(--ts); line-height:1.82; margin-bottom:14px; }
+    .about-vals { list-style:none; margin-top:24px; display:flex; flex-direction:column; gap:12px; }
+    .about-vals li { display:flex; align-items:flex-start; gap:12px; font-size:.9rem; color:var(--ts); }
+    .about-vals li i { color:var(--g400); margin-top:3px; flex-shrink:0; }
+    .about-vis { display:flex; flex-direction:column; gap:20px; }
+    .ins-card {
+      background:var(--n700); border:1px solid var(--br-gold);
+      border-radius:var(--r-md); padding:28px; position:relative; overflow:hidden;
+    }
+    .ins-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg,transparent,var(--g400),transparent);
+    }
+    .ins-label { font-size:.8rem; color:var(--tm); text-transform:uppercase; letter-spacing:.1em; margin-bottom:20px; }
+    .ins-pair { display:flex; gap:16px; }
+    .instructor { flex:1; text-align:center; }
+    .ins-avatar {
+      width:60px; height:60px; border-radius:50%;
+      background:linear-gradient(135deg,var(--n500),var(--n400));
+      border:2px solid var(--br-gold);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Playfair Display',serif; font-weight:700;
+      font-size:1.1rem; color:var(--g400); margin:0 auto 12px;
+    }
+    .ins-name { font-size:.88rem; font-weight:600; color:var(--white); margin-bottom:3px; }
+    .ins-role { font-size:.75rem; color:var(--tm); }
+    .about-quote {
+      background:var(--bg-gold); border:1px solid var(--br-gold);
+      border-radius:var(--r-md); padding:24px; text-align:center;
+    }
+    .about-quote p {
+      font-family:'Playfair Display',serif; font-size:1.1rem;
+      font-style:italic; color:var(--g200); line-height:1.7;
+    }
+    .about-quote span {
+      font-size:.8rem; color:var(--tm); font-family:'Poppins',sans-serif;
+      font-style:normal; display:block; margin-top:8px;
+    }
+
+    /* ── CTA ── */
+    #enroll { background:var(--n900); }
+    .cta-box {
+      background:linear-gradient(135deg,#0E2245 0%,#162E5C 50%,#0E2245 100%);
+      border:1px solid rgba(212,175,55,.2); border-radius:24px;
+      padding:80px 60px; text-align:center; position:relative; overflow:hidden;
+    }
+    .cta-box::before {
+      content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width:50%; height:1px;
+      background:linear-gradient(90deg,transparent,var(--g400),transparent);
+    }
+    .cta-glow {
+      position:absolute; top:-100px; left:50%; transform:translateX(-50%);
+      width:600px; height:300px;
+      background:radial-gradient(ellipse,rgba(212,175,55,.07) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .cta-box h2 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,4vw,3rem); font-weight:700;
+      color:var(--white); margin-bottom:14px;
+    }
+    .cta-box > p {
+      font-size:1.02rem; color:var(--ts); margin-bottom:40px;
+      max-width:520px; margin-left:auto; margin-right:auto;
+    }
+    .cta-form {
+      display:flex; gap:10px; justify-content:center;
+      max-width:460px; margin:0 auto 16px;
+    }
+    .cta-input {
+      flex:1; padding:13px 18px;
+      background:rgba(255,255,255,.05); border:1.5px solid rgba(255,255,255,.15);
+      border-radius:var(--r-sm); color:var(--white);
+      font-family:'Poppins',sans-serif; font-size:.9rem; outline:none;
+      transition:border-color .3s;
+    }
+    .cta-input:focus { border-color:var(--g400); }
+    .cta-input::placeholder { color:var(--tm); }
+    .cta-note { font-size:.78rem; color:var(--tm); }
+
+    /* ── FOOTER ── */
+    footer {
+      background:var(--n950); padding:68px 0 30px;
+      border-top:1px solid var(--br-white);
+    }
+    .foot-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px; }
+    .foot-desc { font-size:.875rem; color:var(--ts); line-height:1.8; margin:14px 0 22px; }
+    .socials { display:flex; gap:10px; }
+    .soc-btn {
+      width:36px; height:36px; border-radius:var(--r-sm);
+      background:var(--n700); border:1px solid var(--br-white);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--ts); font-size:.88rem; transition:all .25s;
+    }
+    .soc-btn:hover { background:var(--bg-gold); border-color:var(--br-gold); color:var(--g400); }
+    .foot-col h4 {
+      font-size:.8rem; font-weight:700; color:var(--white);
+      text-transform:uppercase; letter-spacing:.1em; margin-bottom:18px;
+    }
+    .foot-links { list-style:none; display:flex; flex-direction:column; gap:9px; }
+    .foot-links a { font-size:.86rem; color:var(--ts); transition:color .2s; }
+    .foot-links a:hover { color:var(--g400); }
+    .foot-bottom {
+      border-top:1px solid var(--br-white); padding-top:26px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .foot-bottom p,.foot-bottom a { font-size:.82rem; color:var(--tm); }
+    .foot-bottom a { transition:color .2s; }
+    .foot-bottom a:hover { color:var(--g400); }
+    .foot-legal { display:flex; gap:20px; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInUp   { from{opacity:0;transform:translateY(28px)}  to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn     { from{opacity:0} to{opacity:1} }
+    @keyframes bounce     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+
+    /* Scroll Reveal */
+    .sr { opacity:0; transform:translateY(36px); transition:opacity .75s ease,transform .75s ease; }
+    .sr.vis { opacity:1; transform:translateY(0); }
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      .levels-grid,.feat-grid,.testi-grid{grid-template-columns:repeat(2,1fr);}
+      .lessons-grid{grid-template-columns:repeat(2,1fr);}
+      .res-grid{grid-template-columns:repeat(2,1fr);}
+      .stats-grid{grid-template-columns:repeat(2,1fr);}
+      .stat-item:nth-child(2){border-right:none;}
+      .stat-item:nth-child(3){border-top:1px solid var(--br-white);}
+      .stat-item:nth-child(4){border-top:1px solid var(--br-white);border-right:none;}
+      .about-grid{grid-template-columns:1fr;gap:48px;}
+      .foot-grid{grid-template-columns:1fr 1fr;gap:32px;}
+      .cta-box{padding:60px 40px;}
+    }
+
+    @media(max-width:768px){
+      .nav-menu,.nav-right .btn-gold{display:none;}
+      .hamburger{display:flex;}
+      .levels-grid,.lessons-grid,.feat-grid,.testi-grid,.res-grid{grid-template-columns:1fr;}
+      .hero-kpis{gap:24px;}
+      .kpi-num{font-size:1.5rem;}
+      .cta-form{flex-direction:column;}
+      .cta-box{padding:40px 20px;}
+      .foot-grid{grid-template-columns:1fr;}
+      .foot-bottom{flex-direction:column;gap:10px;text-align:center;}
+      .foot-legal{flex-wrap:wrap;justify-content:center;}
+    }
+
+    @media(max-width:480px){
+      .hero-kpis{gap:16px;bottom:54px;}
+      .kpi-num{font-size:1.3rem;}
+      .kpi-lbl{font-size:.65rem;}
+      .stats-grid{grid-template-columns:1fr;}
+      .stat-item{border-right:none!important;border-top:none!important;border-bottom:1px solid var(--br-white);}
+      .stat-item:last-child{border-bottom:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="#hero" class="logo"><span class="logo-p">Prime</span><span class="logo-s">Speaking</span></a>
+      <ul class="nav-menu">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#lessons">Lessons</a></li>
+        <li><a href="#beginner">Beginner</a></li>
+        <li><a href="#intermediate">Intermediate</a></li>
+        <li><a href="#advanced">Advanced</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#enroll" class="btn btn-gold">Enroll Now</a>
+        <button class="hamburger" id="hbg" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose" aria-label="Close"><i class="fas fa-times"></i></button>
+  <ul class="mob-links">
+    <li><a href="#hero" class="ml">Home</a></li>
+    <li><a href="#lessons" class="ml">Lessons</a></li>
+    <li><a href="#beginner" class="ml">Beginner</a></li>
+    <li><a href="#intermediate" class="ml">Intermediate</a></li>
+    <li><a href="#advanced" class="ml">Advanced</a></li>
+    <li><a href="#resources" class="ml">Resources</a></li>
+    <li><a href="#about" class="ml">About</a></li>
+  </ul>
+  <a href="#enroll" class="btn btn-gold ml">Enroll Now</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-grad"></div>
+  <div class="hero-inner">
+    <div class="hero-chip"><i class="fas fa-star"></i> Bangladesh's #1 Spoken English Platform</div>
+    <h1 class="hero-h1">Speak English with<br><em>Confidence &amp; Power</em></h1>
+    <p class="hero-p">From everyday conversations to boardroom presentations — Prime Speaking gives you the skills, practice, and confidence to communicate fluently in English at every level.</p>
+    <div class="hero-btns">
+      <a href="#levels" class="btn btn-gold"><i class="fas fa-play"></i> Start Learning Free</a>
+      <a href="#lessons" class="btn btn-outline">Browse Lessons <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+  <div class="hero-kpis">
+    <div><div class="kpi-num">15K+</div><div class="kpi-lbl">Active Students</div></div>
+    <div><div class="kpi-num">80+</div><div class="kpi-lbl">Video Lessons</div></div>
+    <div><div class="kpi-num">95%</div><div class="kpi-lbl">Success Rate</div></div>
+    <div><div class="kpi-num">4.9★</div><div class="kpi-lbl">Avg Rating</div></div>
+  </div>
+  <div class="scroll-hint"><span>Scroll Down</span><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- ========== STATS STRIP ========== -->
+<section id="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item sr"><div class="stat-num" data-count="15000" data-suffix="+">0</div><div class="stat-lbl">Students Enrolled Across Bangladesh</div></div>
+      <div class="stat-item sr d1"><div class="stat-num" data-count="80" data-suffix="+">0</div><div class="stat-lbl">Structured Video Lessons</div></div>
+      <div class="stat-item sr d2"><div class="stat-num" data-count="95" data-suffix="%">0</div><div class="stat-lbl">Students Report Improved Fluency</div></div>
+      <div class="stat-item sr d3"><div class="stat-num" data-count="4" data-suffix="+">0</div><div class="stat-lbl">Certified English Instructors</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LEVELS ========== -->
+<section id="levels" class="sp">
+  <div class="container">
+    <div class="sh">
+      <span class="eyebrow">Course Levels</span>
+      <h2 class="sec-title">Find Your Perfect <span class="gold">Starting Point</span></h2>
+      <p class="sec-sub">Structured learning paths designed for every stage of your English journey — from first words to native-like fluency.</p>
+    </div>
+    <div class="levels-grid">
+
+      <!-- Beginner -->
+      <div class="lv-card c-beg sr" id="beginner">
+        <div class="lv-icon li-beg">🌱</div>
+        <span class="badge beg" style="margin-bottom:14px">For Complete Beginners</span>
+        <h3>Beginner Level</h3>
+        <p class="lv-desc">Perfect for those starting their English journey. Build a strong foundation in pronunciation, vocabulary, and basic conversation.</p>
+        <ul class="topic-list">
+          <li><i class="fas fa-diamond"></i> Alphabet, Sounds &amp; Pronunciation</li>
+          <li><i class="fas fa-diamond"></i> Greetings &amp; Self-Introduction</li>
+          <li><i class="fas fa-diamond"></i> Numbers, Dates &amp; Everyday Time</li>
+          <li><i class="fas fa-diamond"></i> Simple Sentence Structures</li>
+          <li><i class="fas fa-diamond"></i> 500 Essential Vocabulary Words</li>
+        </ul>
+        <div class="lv-footer">
+          <span class="lv-count"><strong>25</strong> Lessons</span>
+          <a href="#enroll" class="btn btn-ghost" style="font-size:.82rem;padding:9px 16px">Start Now →</a>
+        </div>
+      </div>
+
+      <!-- Intermediate -->
+      <div class="lv-card c-int sr d1" id="intermediate">
+        <div class="lv-icon li-int">🚀</div>
+        <span class="badge int" style="margin-bottom:14px">⭐ Most Popular</span>
+        <h3>Intermediate Level</h3>
+        <p class="lv-desc">Build real-world fluency. Tackle professional conversations, improve grammar, and communicate with confidence in any setting.</p>
+        <ul class="topic-list">
+          <li><i class="fas fa-diamond"></i> Complex Grammar &amp; All Tenses</li>
+          <li><i class="fas fa-diamond"></i> Professional Communication</li>
+          <li><i class="fas fa-diamond"></i> Phone, Email &amp; Meeting Etiquette</li>
+          <li><i class="fas fa-diamond"></i> Travel &amp; Social English</li>
+          <li><i class="fas fa-diamond"></i> Storytelling &amp; Opinion Sharing</li>
+        </ul>
+        <div class="lv-footer">
+          <span class="lv-count"><strong>32</strong> Lessons</span>
+          <a href="#enroll" class="btn btn-ghost" style="font-size:.82rem;padding:9px 16px">Start Now →</a>
+        </div>
+      </div>
+
+      <!-- Advanced -->
+      <div class="lv-card c-adv sr d2" id="advanced">
+        <div class="lv-icon li-adv">👑</div>
+        <span class="badge adv" style="margin-bottom:14px">For High Achievers</span>
+        <h3>Advanced Level</h3>
+        <p class="lv-desc">Achieve native-like fluency. Master boardroom English, academic speaking, and the subtle art of powerful communication.</p>
+        <ul class="topic-list">
+          <li><i class="fas fa-diamond"></i> Business Presentations &amp; Pitching</li>
+          <li><i class="fas fa-diamond"></i> Debate, Negotiation &amp; Persuasion</li>
+          <li><i class="fas fa-diamond"></i> IELTS Speaking Preparation</li>
+          <li><i class="fas fa-diamond"></i> Leadership Communication</li>
+          <li><i class="fas fa-diamond"></i> Cultural Nuance &amp; Native Idioms</li>
+        </ul>
+        <div class="lv-footer">
+          <span class="lv-count"><strong>23</strong> Lessons</span>
+          <a href="#enroll" class="btn btn-ghost" style="font-size:.82rem;padding:9px 16px">Start Now →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== LESSONS ========== -->
+<section id="lessons" class="sp">
+  <div class="container">
+    <div class="sh">
+      <span class="eyebrow">Featured Lessons</span>
+      <h2 class="sec-title">Start with a <span class="gold">Free Lesson</span> Today</h2>
+      <p class="sec-sub">Pick any lesson and experience the Prime Speaking difference — structured, practical, and designed for real results.</p>
+    </div>
+    <div class="lessons-grid">
+
+      <div class="ls-card sr">
+        <div class="ls-thumb t1"><span class="ls-emoji">🤝</span><div class="ls-play"><i class="fas fa-play-circle"></i></div></div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="badge beg"><i class="fas fa-circle" style="font-size:5px"></i>Beginner</span><span class="ls-dur"><i class="fas fa-clock"></i> 12 min</span></div>
+          <div class="ls-title">Daily Greetings &amp; Introductions</div>
+          <p class="ls-desc">Master the art of meeting people and creating a powerful first impression in English.</p>
+        </div>
+      </div>
+
+      <div class="ls-card sr d1">
+        <div class="ls-thumb t2"><span class="ls-emoji">🗺️</span><div class="ls-play"><i class="fas fa-play-circle"></i></div></div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="badge beg"><i class="fas fa-circle" style="font-size:5px"></i>Beginner</span><span class="ls-dur"><i class="fas fa-clock"></i> 15 min</span></div>
+          <div class="ls-title">Asking &amp; Giving Directions</div>
+          <p class="ls-desc">Navigate cities, airports, and unfamiliar places confidently in English.</p>
+        </div>
+      </div>
+
+      <div class="ls-card sr d2">
+        <div class="ls-thumb t3"><span class="ls-emoji">📞</span><div class="ls-play"><i class="fas fa-play-circle"></i></div></div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="badge int"><i class="fas fa-circle" style="font-size:5px"></i>Intermediate</span><span class="ls-dur"><i class="fas fa-clock"></i> 20 min</span></div>
+          <div class="ls-title">Phone Conversation Skills</div>
+          <p class="ls-desc">Handle professional and personal calls in English with ease and confidence.</p>
+        </div>
+      </div>
+
+      <div class="ls-card sr">
+        <div class="ls-thumb t4"><span class="ls-emoji">💼</span><div class="ls-play"><i class="fas fa-play-circle"></i></div></div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="badge int"><i class="fas fa-circle" style="font-size:5px"></i>Intermediate</span><span class="ls-dur"><i class="fas fa-clock"></i> 28 min</span></div>
+          <div class="ls-title">Job Interview English</div>
+          <p class="ls-desc">Learn the exact phrases top candidates use to ace English job interviews.</p>
+        </div>
+      </div>
+
+      <div class="ls-card sr d1">
+        <div class="ls-thumb t5"><span class="ls-emoji">📊</span><div class="ls-play"><i class="fas fa-play-circle"></i></div></div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="badge adv"><i class="fas fa-circle" style="font-size:5px"></i>Advanced</span><span class="ls-dur"><i class="fas fa-clock"></i> 35 min</span></div>
+          <div class="ls-title">Business Presentation Mastery</div>
+          <p class="ls-desc">Command attention and deliver presentations that persuade, inspire, and close deals.</p>
+        </div>
+      </div>
+
+      <div class="ls-card sr d2">
+        <div class="ls-thumb t6"><span class="ls-emoji">🎙️</span><div class="ls-play"><i class="fas fa-play-circle"></i></div></div>
+        <div class="ls-body">
+          <div class="ls-meta"><span class="badge adv"><i class="fas fa-circle" style="font-size:5px"></i>Advanced</span><span class="ls-dur"><i class="fas fa-clock"></i> 40 min</span></div>
+          <div class="ls-title">Debate &amp; Argumentation</div>
+          <p class="ls-desc">Build sharp arguments, counter effectively, and win debates in high-stakes English discussions.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHY US ========== -->
+<section id="why-us" class="sp">
+  <div class="container">
+    <div class="sh">
+      <span class="eyebrow">Why Prime Speaking</span>
+      <h2 class="sec-title">Everything You Need to <span class="gold">Speak Fluently</span></h2>
+      <p class="sec-sub">Proven methodology meets modern delivery — giving Bangladeshi learners the most effective English training available.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card sr"><div class="fi"><i class="fas fa-layer-group"></i></div><h4>Structured Curriculum</h4><p>A carefully designed learning path from zero to fluent — step by step, with zero guesswork about what to learn next.</p></div>
+      <div class="feat-card sr d1"><div class="fi"><i class="fas fa-microphone-alt"></i></div><h4>Pronunciation Coaching</h4><p>Master the 44 sounds of English with dedicated phonetics training — hear the difference, feel the difference, be understood everywhere.</p></div>
+      <div class="feat-card sr d2"><div class="fi"><i class="fas fa-comments"></i></div><h4>Real-Life Conversation Practice</h4><p>Role-play real scenarios — job interviews, business meetings, travel situations — so you're ready when it matters most.</p></div>
+      <div class="feat-card sr"><div class="fi"><i class="fas fa-bolt"></i></div><h4>Daily Practice Exercises</h4><p>Short, focused daily exercises that build fluency through consistency — just 15 minutes a day creates a measurable difference.</p></div>
+      <div class="feat-card sr d1"><div class="fi"><i class="fas fa-users"></i></div><h4>Active Student Community</h4><p>Join 15,000+ learners in our community. Practice together, share progress, and stay motivated through peer accountability.</p></div>
+      <div class="feat-card sr d2"><div class="fi"><i class="fas fa-certificate"></i></div><h4>Completion Certificates</h4><p>Earn recognized certificates when you complete each level — a credential that demonstrates your English proficiency to employers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section id="testimonials" class="sp">
+  <div class="container">
+    <div class="sh">
+      <span class="eyebrow">Student Stories</span>
+      <h2 class="sec-title">Real Results from <span class="gold">Real Students</span></h2>
+      <p class="sec-sub">Over 15,000 Bangladeshi students have transformed their English skills. Here's what they say.</p>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card sr">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">Prime Speaking completely changed how I speak English. After just two months of the Intermediate course, I got my dream job at a multinational company. The interview practice lessons were exactly what I needed.</p>
+        <div class="testi-author"><div class="avatar">RA</div><div><div class="auth-name">Rahim Ahmed</div><div class="auth-loc">Software Engineer, Dhaka</div></div></div>
+      </div>
+
+      <div class="testi-card sr d1">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">I was always afraid to speak English in public. Prime Speaking helped me overcome that fear step by step. Now I confidently give presentations to international clients. The structured approach makes all the difference.</p>
+        <div class="testi-author"><div class="avatar">PS</div><div><div class="auth-name">Priya Sharmin</div><div class="auth-loc">Marketing Manager, Chittagong</div></div></div>
+      </div>
+
+      <div class="testi-card sr d2">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">I scored 7.5 in IELTS Speaking after completing the Advanced course. The debate and argumentation lessons helped me think and respond in English naturally. Highly recommended for IELTS preparation!</p>
+        <div class="testi-author"><div class="avatar">SK</div><div><div class="auth-name">Sabbir Khan</div><div class="auth-loc">IELTS 7.5 | Student, Sylhet</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESOURCES ========== -->
+<section id="resources" class="sp">
+  <div class="container">
+    <div class="sh">
+      <span class="eyebrow">Free Resources</span>
+      <h2 class="sec-title">Tools to Accelerate <span class="gold">Your Learning</span></h2>
+      <p class="sec-sub">Supplementary materials curated to support your English learning journey — all free for Prime Speaking students.</p>
+    </div>
+    <div class="res-grid">
+      <div class="res-card sr"><div class="res-icon"><i class="fas fa-file-pdf"></i></div><h4>Pronunciation Guide</h4><p>A 48-page PDF covering all 44 phonemes of English with exercises and audio descriptions.</p><span class="res-tag"><i class="fas fa-download"></i> Free PDF Download</span></div>
+      <div class="res-card sr d1"><div class="res-icon"><i class="fas fa-book-open"></i></div><h4>Phrase Dictionary</h4><p>1,200+ essential English phrases organized by situation and proficiency level for quick reference.</p><span class="res-tag"><i class="fas fa-download"></i> Free PDF Download</span></div>
+      <div class="res-card sr d2"><div class="res-icon"><i class="fas fa-tasks"></i></div><h4>Practice Exercises</h4><p>50 interactive exercises covering grammar, vocabulary, listening, and conversation skills.</p><span class="res-tag"><i class="fas fa-external-link-alt"></i> Access Online</span></div>
+      <div class="res-card sr d3"><div class="res-icon"><i class="fas fa-users"></i></div><h4>Student Community</h4><p>Join our Facebook group with 5,000+ active members practicing and supporting each other daily.</p><span class="res-tag"><i class="fas fa-external-link-alt"></i> Join for Free</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" class="sp">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-txt sr">
+        <span class="eyebrow">About Prime Speaking</span>
+        <h2>English Education<br>Built for <span class="gold ital">Bangladesh</span></h2>
+        <p>Prime Speaking was founded in 2020 with a clear mission: to make world-class English education accessible to every Bangladeshi learner — regardless of their background or location.</p>
+        <p>We understand the unique challenges Bangladeshi students face when learning spoken English. Every lesson is designed with Bangla mother-tongue speakers in mind, addressing specific pronunciation issues and building genuine communication confidence.</p>
+        <ul class="about-vals">
+          <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--white)">Culturally Relevant</strong> — Content that understands the Bangladeshi context and learning style</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--white)">Practically Focused</strong> — Every lesson teaches skills you'll actually use in real life</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--white)">Affordable Access</strong> — Premium quality at a price accessible to Bangladeshi students everywhere</span></li>
+        </ul>
+      </div>
+      <div class="about-vis sr d1">
+        <div class="ins-card">
+          <p class="ins-label">Our Expert Instructors</p>
+          <div class="ins-pair">
+            <div class="instructor">
+              <div class="ins-avatar">RH</div>
+              <div class="ins-name">Mr. Rafiq Hassan</div>
+              <div class="ins-role">IELTS 9.0 | 10+ Yrs Experience</div>
+            </div>
+            <div class="instructor">
+              <div class="ins-avatar">NK</div>
+              <div class="ins-name">Ms. Nadia Karim</div>
+              <div class="ins-role">Cambridge CELTA | 8+ Yrs</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-quote">
+          <p>"English is not just a language — it is the key that unlocks global opportunities for every Bangladeshi."</p>
+          <span>— Prime Speaking Mission Statement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section id="enroll" class="sp">
+  <div class="container">
+    <div class="cta-box">
+      <div class="cta-glow"></div>
+      <span class="eyebrow">Start Today — It's Free</span>
+      <h2>Join 15,000+ Students<br>Already <span class="gold ital">Speaking Better</span></h2>
+      <p>Enter your email and get instant access to your first 5 lessons — completely free. No credit card required.</p>
+      <div class="cta-form">
+        <input class="cta-input" type="email" placeholder="Enter your email address...">
+        <button class="btn btn-gold" onclick="handleEnroll()">Get Free Access</button>
+      </div>
+      <p class="cta-note"><i class="fas fa-lock" style="color:var(--g400);margin-right:4px"></i>Your information is safe. We never share your email.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#hero" class="logo"><span class="logo-p">Prime</span><span class="logo-s">Speaking</span></a>
+        <p class="foot-desc">Bangladesh's most trusted spoken English platform. Transforming learners from hesitant speakers to confident communicators since 2020.</p>
+        <div class="socials">
+          <a href="#" class="soc-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul class="foot-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#levels">Course Levels</a></li>
+          <li><a href="#lessons">Lessons</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#enroll">Enroll Now</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <ul class="foot-links">
+          <li><a href="#resources">Pronunciation Guide</a></li>
+          <li><a href="#resources">Phrase Dictionary</a></li>
+          <li><a href="#resources">Practice Exercises</a></li>
+          <li><a href="#resources">Student Community</a></li>
+          <li><a href="#resources">IELTS Prep Guide</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul class="foot-links">
+          <li><a href="mailto:hello@primespeaking.com.bd">hello@primespeaking.com.bd</a></li>
+          <li><a href="tel:+8801700000000">+880 1700-000000</a></li>
+          <li><a href="#">Dhaka, Bangladesh</a></li>
+          <li style="margin-top:14px">
+            <a href="#enroll" class="btn btn-ghost" style="font-size:.82rem;padding:10px 18px;display:inline-flex">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="yr"></span> Prime Speaking. All rights reserved.</p>
+      <div class="foot-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   MOUNTAIN CANVAS BACKGROUND ANIMATION
+============================================================ */
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  const ctx    = canvas.getContext('2d');
+  let W, H, animId, t = 0;
+
+  const LAYERS = [
+    { baseY:.48, color:'#0E1E35', speed:.20,
+      h:[{f:.0028,a:55,p:0},{f:.007,a:28,p:1.4},{f:.014,a:14,p:3.0},{f:.026,a:7,p:.7},{f:.050,a:4,p:2.1}] },
+    { baseY:.55, color:'#09152A', speed:.35,
+      h:[{f:.0038,a:68,p:.8},{f:.009,a:36,p:.4},{f:.018,a:18,p:2.2},{f:.033,a:9,p:1.6}] },
+    { baseY:.63, color:'#060F1E', speed:.52,
+      h:[{f:.005,a:82,p:1.6},{f:.011,a:44,p:.9},{f:.022,a:22,p:2.5},{f:.042,a:11,p:.3}] },
+    { baseY:.72, color:'#040B18', speed:.72,
+      h:[{f:.006,a:96,p:.5},{f:.014,a:52,p:1.9},{f:.028,a:26,p:.8}] },
+    { baseY:.80, color:'#020810', speed:.95,
+      h:[{f:.008,a:108,p:2.1},{f:.019,a:58,p:.6},{f:.038,a:29,p:1.4}] }
+  ];
+
+  let stars = [];
+
+  function initStars(){
+    stars = [];
+    for(let i=0;i<220;i++){
+      stars.push({
+        x:Math.random()*W, y:Math.random()*H*.58,
+        r:Math.random()*1.4+.15, o:Math.random()*.75+.1,
+        tw:Math.random()*Math.PI*2, ts:.025+Math.random()*.02
+      });
+    }
+  }
+
+  function resize(){
+    const sec = document.getElementById('hero');
+    W = canvas.width  = Math.max(sec.offsetWidth,1);
+    H = canvas.height = Math.max(sec.offsetHeight,1);
+    initStars();
+  }
+
+  function getY(layer, x, off){
+    let y = layer.baseY * H;
+    const sc = H / 700;
+    for(const h of layer.h) y += Math.sin((x+off)*h.f + h.p)*h.a*sc;
+    return Math.min(y, H*.96);
+  }
+
+  function drawSky(){
+    const g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,   '#010712');
+    g.addColorStop(.25, '#040E1C');
+    g.addColorStop(.50, '#081422');
+    g.addColorStop(.68, '#0C1C30');
+    g.addColorStop(.78, '#141E2E');
+    g.addColorStop(.84, '#1E2030');
+    g.addColorStop(.88, '#2A2818');
+    g.addColorStop(.93, '#4A3412');
+    g.addColorStop(.97, '#7A4E0A');
+    g.addColorStop(1,   '#9E6210');
+    ctx.fillStyle = g;
+    ctx.fillRect(0,0,W,H);
+  }
+
+  function drawSunGlow(){
+    const cx=W*.5, cy=H*.84;
+    const g1=ctx.createRadialGradient(cx,cy,0,cx,cy,W*.55);
+    g1.addColorStop(0,  'rgba(215,140,20,.5)');
+    g1.addColorStop(.18,'rgba(170,100,10,.25)');
+    g1.addColorStop(.45,'rgba(120,70,5,.10)');
+    g1.addColorStop(1,  'transparent');
+    ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
+
+    const g2=ctx.createRadialGradient(cx,cy,0,cx,cy,W*.22);
+    g2.addColorStop(0,  'rgba(255,180,30,.22)');
+    g2.addColorStop(.5, 'rgba(200,130,10,.08)');
+    g2.addColorStop(1,  'transparent');
+    ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
+  }
+
+  function drawStars(){
+    stars.forEach(s=>{
+      const twinkle = .6 + Math.sin(s.tw + t*s.ts)*.4;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(250,245,220,${s.o*twinkle})`;
+      ctx.fill();
+    });
+  }
+
+  function drawLayer(layer){
+    const off   = t * layer.speed;
+    const steps = Math.ceil(W/1.5);
+    ctx.beginPath();
+    ctx.moveTo(0,H);
+    ctx.lineTo(0, getY(layer,0,off));
+    for(let i=1;i<=steps;i++){
+      const x=i/steps*W;
+      ctx.lineTo(x, getY(layer,x,off));
+    }
+    ctx.lineTo(W,H);
+    ctx.closePath();
+    ctx.fillStyle = layer.color;
+    ctx.fill();
+  }
+
+  function drawFog(){
+    const g = ctx.createLinearGradient(0,H*.76,0,H);
+    g.addColorStop(0,   'rgba(12,22,38,0)');
+    g.addColorStop(.35, 'rgba(8,15,28,.12)');
+    g.addColorStop(.70, 'rgba(4,10,20,.35)');
+    g.addColorStop(1,   'rgba(2,8,16,.72)');
+    ctx.fillStyle=g;
+    ctx.fillRect(0,H*.76,W,H*.24);
+  }
+
+  function animate(){
+    animId = requestAnimationFrame(animate);
+    t++;
+    drawSky();
+    drawSunGlow();
+    drawStars();
+    for(const l of LAYERS) drawLayer(l);
+    drawFog();
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize',()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(()=>{
+      cancelAnimationFrame(animId);
+      resize();
+      animate();
+    },150);
+  },{passive:true});
+
+  window.addEventListener('load',()=>{ resize(); animate(); });
+})();
+
+/* ============================================================
+   NAVBAR SCROLL
+============================================================ */
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY>70);
+},{passive:true});
+
+/* ============================================================
+   SMOOTH SCROLL (offset for fixed navbar)
+============================================================ */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const id=this.getAttribute('href');
+    if(id==='#') return;
+    const tgt=document.querySelector(id);
+    if(!tgt) return;
+    e.preventDefault();
+    const top=tgt.getBoundingClientRect().top+window.pageYOffset-80;
+    window.scrollTo({top,behavior:'smooth'});
+  });
+});
+
+/* ============================================================
+   MOBILE MENU
+============================================================ */
+const hbg     = document.getElementById('hbg');
+const mobNav  = document.getElementById('mobNav');
+const mobClose= document.getElementById('mobClose');
+
+hbg.addEventListener('click',()=>{
+  mobNav.classList.add('open');
+  document.body.style.overflow='hidden';
+});
+
+function closeMob(){
+  mobNav.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+mobClose.addEventListener('click',closeMob);
+document.querySelectorAll('.ml').forEach(el=>el.addEventListener('click',closeMob));
+
+/* ============================================================
+   COUNTER ANIMATION
+============================================================ */
+function animCount(el){
+  const target  = parseInt(el.dataset.count);
+  const suffix  = el.dataset.suffix||'';
+  const dur     = 1800;
+  const start   = performance.now();
+  function upd(now){
+    const prog = Math.min((now-start)/dur,1);
+    const ease = 1-Math.pow(1-prog,3);
+    const val  = Math.round(ease*target);
+    el.textContent = val.toLocaleString('en-US')+suffix;
+    if(prog<1) requestAnimationFrame(upd);
+  }
+  requestAnimationFrame(upd);
+}
+
+const cntObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ animCount(e.target); cntObs.unobserve(e.target); }
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
+},{threshold:.1});
+document.querySelectorAll('.sr').forEach(el=>revObs.observe(el));
+
+/* ============================================================
+   ENROLL FORM
+============================================================ */
+function handleEnroll(){
+  const input=document.querySelector('.cta-input');
+  const val=input.value.trim();
+  if(!val||!val.includes('@')){
+    input.style.borderColor='#F87171';
+    input.placeholder='Please enter a valid email';
+    setTimeout(()=>{ input.style.borderColor=''; input.placeholder='Enter your email address...'; },2000);
+    return;
+  }
+  const btn=document.querySelector('.cta-form .btn-gold');
+  btn.textContent='✓ Enrolled! Check your email';
+  btn.style.background='linear-gradient(135deg,#166534,#22C55E)';
+  input.value='';
+}
+
+/* Year */
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
